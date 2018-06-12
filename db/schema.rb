@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425000622) do
+ActiveRecord::Schema.define(version: 20180611031255) do
 
   create_table "announcements", force: :cascade do |t|
     t.string "title", null: false
@@ -219,6 +219,7 @@ ActiveRecord::Schema.define(version: 20180425000622) do
     t.string "confirmation_token", default: "CONFIRMED", null: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.datetime "last_login"
     t.index ["deleted_at", "username"], name: "index_users_on_deleted_at_and_username", unique: true
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email"

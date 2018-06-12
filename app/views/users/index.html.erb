@@ -23,7 +23,7 @@
   </tr>
   <% @users.each do |u| %>
     <tr>
-      <td>
+      <td name="Username">
         <% if u.is_active? %>
           <%= link_to u.username, u %>
         <% else %>
@@ -36,18 +36,17 @@
           <span class="text-danger small">Email Not Confirmed</span>
         <% end %>
       </td>
-      <td>
+      <td name="Permissions">
       </td>
-      <td>
-
+      <td name="Last Login">
+        <%= u.last_login.localtime.strftime("%d/%m/%y @ %I:%M %p") %>
       </td>
-      <td>
+      <td name="Created on">
         <%= u.created_at.localtime.strftime("%d/%m/%y @ %I:%M %p") %>
       </td>
-      <td>
-
+      <td name="Stages">
       </td>
-      <td>
+      <td name="Actions">
         <%= link_to 'Edit', edit_user_path(u), :class => "btn btn-default" %>
       </td>
     </tr>

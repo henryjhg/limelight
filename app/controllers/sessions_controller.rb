@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
       else
         flash[:danger] = "Your account has not been activated"
       end
+      user.update(last_login: DateTime.now)
       redirect_to root_path
     else
       flash.now[:danger] = "Email or password incorrect"
